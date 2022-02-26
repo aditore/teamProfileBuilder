@@ -84,3 +84,40 @@ function addEmployee() {
         });
     });
 }
+
+//html writefile
+function baseHTML() {
+    const html = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+        <title>teamProfileBuilder</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="navbar-brand mb-0 w-100 text-center">Generated Team Profile</h1>
+        </nav>
+        <div class="container">
+            <div class="row">`;
+    fs.writeFile('./dist/builtTeam.html', html, (err) => {
+        if(err) {
+            throw(err);
+        }
+    });
+    console.log('Base HTML added');
+}
+
+function endHTML() {
+    const html = `  </div>
+    </div>
+</body>
+</html>`;
+    fs.appendFile('./dist/builtTeam.html', html, (err) => {
+        if(err) {
+            throw(err);
+        }
+    });
+}
