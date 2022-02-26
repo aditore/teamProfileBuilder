@@ -110,6 +110,10 @@ function baseHTML() {
     console.log('Base HTML added');
 }
 
+function middleHTML(employees) {
+//
+}
+
 function endHTML() {
     const html = `  </div>
     </div>
