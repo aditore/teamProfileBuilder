@@ -74,13 +74,13 @@ function addEmployee() {
             employee.push(newEmployee);
             middleHTML(newEmployee)
 
-            .then(function() {
+            //.then(function() {
                 if(nextEmployee === 'YES') {
                     addEmployee();
                 } else {
                     endHTML();
                 }
-            });
+            //});
         });
     });
 }
@@ -111,17 +111,18 @@ function baseHTML() {
 }
 
 function middleHTML(employees) {
-    const name = employee.getName();
-    const id = employee.getId();
-    const email = employee.getEmail(); 
-    const role = employee.getRole();
+    const name = employees.getName();
+    const id = employees.getId();
+    const email = employees.getEmail(); 
+    const role = employees.getRole();
     let data = '';
     if(role === 'Manager') {
-        const officeNumber = employee.getOfficeNumber();
-        data = `<div class="col-6">
+        const officeNumber = employees.getOfficeNumber();
+        data = `
+        <div class="col-6">
         <div class="card">
             <h4 class="card-header text-center">${name}</h4>
-            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <h5 class="card-header text-center">Manager</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">E-mail: ${email}</li>
@@ -130,11 +131,12 @@ function middleHTML(employees) {
         </div>
     </div>`;
     } else if(role === 'Engineer') {
-        const github = employee.getGithub();
-        data = `<div class="col-6">
+        const github = employees.getGithub();
+        data = `
+        <div class="col-6">
         <div class="card">
             <h4 class="card-header text-center">${name}</h4>
-            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <h5 class="card-header text-center">Engineer</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">E-mail: ${email}</li>
@@ -143,11 +145,12 @@ function middleHTML(employees) {
         </div>
     </div>`;
     } else {
-        const school = employee.getSchool();
-        data = `<div class="col-6">
+        const school = employees.getSchool();
+        data = `
+        <div class="col-6">
         <div class="card">
             <h4 class="card-header text-center">${name}</h4>
-            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <h5 class="card-header text-center">Intern</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">E-mail: ${email}</li>
@@ -165,7 +168,8 @@ function middleHTML(employees) {
 }
 
 function endHTML() {
-    const html = `  </div>
+    const html = `  
+    </div>
     </div>
 </body>
 </html>`;
@@ -175,3 +179,12 @@ function endHTML() {
         }
     });
 }
+
+//call app
+function initApp() {
+    baseHTML();
+    addEmployee();
+}
+
+//run app
+initApp();
