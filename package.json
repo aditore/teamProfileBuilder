@@ -20,8 +20,10 @@
     "url": "https://github.com/aditore/teamProfileBuilder/issues"
   },
   "homepage": "https://github.com/aditore/teamProfileBuilder#readme",
-  "dependencies": {
-    "inquirer": "^8.2.0",
+  "devDependencies": {
     "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
   }
 }

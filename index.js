@@ -125,7 +125,9 @@ function middleHTML(employees) {
             <h5 class="card-header text-center">Manager</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">E-mail: ${email}</li>
+                <li class="list-group-item">E-mail: 
+                    <a href="mailto: ${email}">${email}</a>
+                </li>
                 <li class="list-group-item">Office Number: ${officeNumber}</li>
             </ul>
         </div>
@@ -139,8 +141,12 @@ function middleHTML(employees) {
             <h5 class="card-header text-center">Engineer</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">E-mail: ${email}</li>
-                <li class="list-group-item">Github: ${github}</li>
+                <li class="list-group-item">E-mail: 
+                    <a href="mailto: ${email}">${email}</a>
+                </li>
+                <li class="list-group-item">Github: 
+                    <a href="https://github.com/${github}">${github}</a>
+                </li>
             </ul>
         </div>
     </div>`;
@@ -153,7 +159,9 @@ function middleHTML(employees) {
             <h5 class="card-header text-center">Intern</h5>
             <ul class="list-group mb-0">
                 <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">E-mail: ${email}</li>
+                <li class="list-group-item">E-mail: 
+                    <a href="mailto: ${email}">${email}</a>
+                </li>
                 <li class="list-group-item">School: ${school}</li>
             </ul>
         </div>
