@@ -71,14 +71,14 @@ function addEmployee() {
             } else {
                 newEmployee = new Intern(name, id, email, roleType);
             }
-            employee.push(newEmployee)
-            //need to add to HTML file
+            employee.push(newEmployee);
+            middleHTML(newEmployee)
 
             .then(function() {
                 if(nextEmployee === 'YES') {
                     addEmployee();
                 } else {
-                    //stop function call and add/finish HTML
+                    endHTML();
                 }
             });
         });
@@ -111,7 +111,57 @@ function baseHTML() {
 }
 
 function middleHTML(employees) {
-//
+    const name = employee.getName();
+    const id = employee.getId();
+    const email = employee.getEmail(); 
+    const role = employee.getRole();
+    let data = '';
+    if(role === 'Manager') {
+        const officeNumber = employee.getOfficeNumber();
+        data = `<div class="col-6">
+        <div class="card">
+            <h4 class="card-header text-center">${name}</h4>
+            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <ul class="list-group mb-0">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">E-mail: ${email}</li>
+                <li class="list-group-item">Office Number: ${officeNumber}</li>
+            </ul>
+        </div>
+    </div>`;
+    } else if(role === 'Engineer') {
+        const github = employee.getGithub();
+        data = `<div class="col-6">
+        <div class="card">
+            <h4 class="card-header text-center">${name}</h4>
+            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <ul class="list-group mb-0">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">E-mail: ${email}</li>
+                <li class="list-group-item">Github: ${github}</li>
+            </ul>
+        </div>
+    </div>`;
+    } else {
+        const school = employee.getSchool();
+        data = `<div class="col-6">
+        <div class="card">
+            <h4 class="card-header text-center">${name}</h4>
+            <h5 class="card-header text-center">(Enter Job Title)</h5>
+            <ul class="list-group mb-0">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">E-mail: ${email}</li>
+                <li class="list-group-item">School: ${school}</li>
+            </ul>
+        </div>
+    </div>`
+    }
+    console.log('Adding employee');
+    fs.appendFile('./dist/builtTeam.html', data, (err) => {
+        if(err) {
+            throw(err);
+        }
+    });
 }
 
 function endHTML() {
