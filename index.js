@@ -64,7 +64,7 @@ function addEmployee() {
         }])
         .then(function({roleType, nextEmployee}) {
             let newEmployee;
-            if(role === 'Manager') {
+            if( role === 'Manager') {
                 newEmployee = new Manager(name, id, email, roleType);
             } else if( role === 'Engineer') {
                 newEmployee = new Engineer(name, id, email, roleType);
